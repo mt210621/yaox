@@ -1,0 +1,25 @@
+package znet
+
+import "awesomeProject/src/zinx/ziface"
+
+type Request struct {
+	//已经和客户端建立好连接的conn
+	conn ziface.IConnection
+	//客户端请求的数据
+	msg ziface.IMessage
+}
+
+// GetConnection 得到当前连接
+func (r *Request) GetConnection() ziface.IConnection {
+	return r.conn
+}
+
+// GetData 得到请求的数据
+func (r *Request) GetData() []byte {
+	return r.msg.GetData()
+}
+
+// GetMsgId 得到请求的数据
+func (r *Request) GetMsgId() uint32 {
+	return r.msg.GetMsgId()
+}
